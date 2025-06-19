@@ -841,6 +841,7 @@ export const CardEditorPopup: React.FC<CardEditorPopupProps> = ({ cardId, onClos
               {backgroundType === 'music' && (
                 <AppleMusicSearch
                   onSelect={handleAppleMusicSelect}
+                  onClose={() => setBackgroundType('color')}
                 />
               )}
 
