@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { HexColorPicker } from 'react-colorful';
 import { useStore } from '../store/useStore';
 import { BentoCard, GridSize, FontFamily, FontWeight, TextAlign, Typography, AppleMusicData, CalendlyData, InternalLayout } from '../types';
-import { Save, Trash2, Eye, EyeOff, Palette, Image, Upload, Type, AlignLeft, AlignCenter, AlignRight, X, Video, Play, Music, Grid, Calendar, Mail, MessageSquare, LucideCrop as LucideProps } from 'lucide-react';
+import { Save, Trash2, Eye, EyeOff, Palette, Image, Upload, Type, AlignLeft, AlignCenter, AlignRight, X, Video, Play, Music, Grid, Calendar, Mail, MessageSquare } from 'lucide-react';
 import { ImageUploader } from './ImageUploader';
 import { VideoUploader } from './VideoUploader';
 import { AppleMusicSearch } from './AppleMusicSearch';
@@ -342,7 +342,7 @@ export const CardEditorPopup: React.FC<CardEditorPopupProps> = ({ cardId, onClos
     { value: '900', label: 'Black' }
   ];
 
-  const textAlignOptions: { value: TextAlign; label: string; icon: React.ComponentType<LucideProps> }[] = [
+  const textAlignOptions: { value: TextAlign; label: string; icon: React.ComponentType<{ size?: string | number; className?: string }> }[] = [
     { value: 'left', label: 'Gauche', icon: AlignLeft },
     { value: 'center', label: 'Centre', icon: AlignCenter },
     { value: 'right', label: 'Droite', icon: AlignRight }
@@ -382,7 +382,7 @@ export const CardEditorPopup: React.FC<CardEditorPopupProps> = ({ cardId, onClos
     return IconComponent || Icons.Square;
   };
 
-  const IconComponent = getIconComponent(selectedIcon) as React.ComponentType<LucideProps> | null;
+  const IconComponent = getIconComponent(selectedIcon) as React.ComponentType<{ size?: number }> | null;
 
   return (
     <motion.div
@@ -558,7 +558,7 @@ export const CardEditorPopup: React.FC<CardEditorPopupProps> = ({ cardId, onClos
                       );
                     }
                     
-                    const Icon = getIconComponent(icon) as React.ComponentType<LucideProps>;
+                    const Icon = getIconComponent(icon) as React.ComponentType<{ size?: number; className?: string }>;
                     return (
                       <label key={icon} className="cursor-pointer">
                         <input
