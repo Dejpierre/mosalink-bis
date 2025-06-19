@@ -82,12 +82,12 @@ export const BottomToolbar: React.FC<BottomToolbarProps> = ({
           textColor: '#ffffff',
           size: '2x1' as const,
           typography: {
-            fontFamily: 'Inter',
-            titleWeight: '700',
-            descriptionWeight: '400',
-            textAlign: 'left',
-            titleSize: 'xl',
-            descriptionSize: 'base'
+            fontFamily: 'inter' as const,
+            titleWeight: '700' as const,
+            descriptionWeight: '400' as const,
+            textAlign: 'left' as const,
+            titleSize: 'xl' as const,
+            descriptionSize: 'base' as const
           }
         };
         break;
@@ -187,7 +187,8 @@ export const BottomToolbar: React.FC<BottomToolbarProps> = ({
         break;
     }
     
-    const result = await addCard(newCard);
+    // Solution 2: Type assertion sur newCard
+    const result = await addCard(newCard as any);
     
     if (result.success) {
       setShowBlockMenu(false);
