@@ -839,13 +839,10 @@ export const CardEditorPopup: React.FC<CardEditorPopupProps> = ({ cardId, onClos
               )}
 
               {backgroundType === 'music' && (
-  <AppleMusicSearch
-    {...({
-      currentSelection: selectedAppleMusicData,
-      onSelect: handleAppleMusicSelect,
-    } as any)}
-  />
-)}
+                <AppleMusicSearch
+                  onSelect={handleAppleMusicSelect}
+                />
+              )}
 
               {backgroundType === 'calendly' && (
                 <CalendlyIntegration
